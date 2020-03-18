@@ -11,6 +11,7 @@ var timerVar;
 var firstFlippedCard, secondFlippedCard;
 /* INITIATE THE GAME ON PAGE LOAD */
 function initGame() {
+  console.log('game inititing');
   //game finished count should always be 0 when initiating the game
   gameFinishedCount = 0;
   const cards = document.querySelectorAll('.card');
@@ -18,6 +19,7 @@ function initGame() {
   cards.forEach(card => card.addEventListener('click', flipTheCard));
   shuffleCards(cardsArray);
   randomizeImageSrc();
+  console.log('game initiated');
 }
 /* CARD ACTIONS */
 function flipTheCard() {
@@ -39,15 +41,18 @@ function flipTheCard() {
 }
 /* CHECK IF CARDS ARE MATCH AND FINISH GAME IF YOU HAVE 8 MATCHES */
 function checkMatch() {
+  console.log('checking match');
   movesCount++;
   document.getElementById('moves').innerHTML = movesCount;
   if (firstFlippedCard.dataset.cardId === secondFlippedCard.dataset.cardId) {
     markCardsComplete();
+    console.log('match = true');
     if (gameFinishedCount == 8) {
       gameFinished();
     }
     return;
   }
+  console.log('match = false');
   reflipCards();
 }
 /* MARK THE CARD AS COMPLETE AND INCREASE GAME FINISH COUNT */
@@ -75,14 +80,17 @@ function shuffleCards(cardsArray) {
     var pos2 = Math.floor(Math.random() * cardsArray.length - 1) + 1;
     cardsArray.eq(pos1).before(cardsArray.eq(pos2));
   }
+
+  console.log('cards shuffled');
 }
 /* RANDOMIZE BACK CARD SRC TO PREVENT DUSSE HACKERMAN */
 function randomizeImageSrc() {
   const imageArray = $(".back");
   for (var i = 0; i < imageArray.length; i++) {
-    console.log(imageArray[i]);
     imageArray[i].src = imageArray[i].src + '?' + Math.random();
   }
+
+  console.log('image sources randomized');
 }
 /* WHAT TO DO AFTER GAME IS FINISHED */
 function gameFinished() {
@@ -92,6 +100,7 @@ function gameFinished() {
   resetTimer();
   createRating(totalPoints);
   modalActive = true;
+  console.log('game finished');
 }
 /* CLOSE THE MODAL */
 function closeModal() {
@@ -123,6 +132,7 @@ function restartGame() {
   resetTimer();
   //initiate game
   initGame();
+  console.log('game restarted');
 }
 /* COUNT UP TIMER */
 function countTimer() {
