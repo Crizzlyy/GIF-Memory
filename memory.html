@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="css/memory.css" type="text/css" rel="stylesheet">
+    <title>Memory</title>
+</head>
+<script src="js/jquery-3.4.1.js"></script>
+<script type="text/javascript" src="js/memory.js"></script>
+<script type="text/javascript" src="js/memory-scoreboard.js"></script>
+
+<body onload="initGame()">
+    <div id="dashboard">
+        <span id="game_title">GIF Memory</span>
+        <p id="time"></p>
+        <p id="moves"></p><button id="leaderboard-front" onclick="renderLeaderboard()">Leaderboard</button><button
+            id="play-again-front" onclick="restartGame()">Restart</button>
+        <a href="index.html">
+            <p id="home"></p>
+        </a>
+    </div>
+    <div id="game_container">
+        <div id="game">
+            <div class="card" data-card-id="m1">
+                <img class="front" src="img/memory-front.gif">
+                <img class="back" src="img/memory-pictures/wohoo.gif">
+            </div>
+            <div class="card" data-card-id="m1">
+                <img class="front" src="img/memory-front.gif">
+                <img class="back" src="img/memory-pictures/wohoo.gif">
+            </div>
+            <div class="card" data-card-id="m2">
+                <img class="front" src="img/memory-front.gif">
+                <img class="back" src="img/memory-pictures/rick.gif">
+            </div>
+            <div class="card" data-card-id="m2">
+                <img class="front" src="img/memory-front.gif">
+                <img class="back" src="img/memory-pictures/rick.gif">
+            </div>
+            <div class="card" data-card-id="m3">
+                <img class="front" src="img/memory-front.gif">
+                <img class="back" src="img/memory-pictures/thumbs.gif">
+            </div>
+            <div class="card" data-card-id="m3">
+                <img class="front" src="img/memory-front.gif">
+                <img class="back" src="img/memory-pictures/thumbs.gif">
+            </div>
+            <div class="card" data-card-id="m4">
+                <img class="front" src="img/memory-front.gif">
+                <img class="back" src="img/memory-pictures/youknow.gif">
+            </div>
+            <div class="card" data-card-id="m4">
+                <img class="front" src="img/memory-front.gif">
+                <img class="back" src="img/memory-pictures/youknow.gif">
+            </div>
+            <div class="card" data-card-id="m5">
+                <img class="front" src="img/memory-front.gif">
+                <img class="back" src="img/memory-pictures/floss.gif">
+            </div>
+            <div class="card" data-card-id="m5">
+                <img class="front" src="img/memory-front.gif">
+                <img class="back" src="img/memory-pictures/floss.gif">
+            </div>
+            <div class="card" data-card-id="m6">
+                <img class="front" src="img/memory-front.gif">
+                <img class="back" src="img/memory-pictures/whiteguy.gif">
+            </div>
+            <div class="card" data-card-id="m6">
+                <img class="front" src="img/memory-front.gif">
+                <img class="back" src="img/memory-pictures/whiteguy.gif">
+            </div>
+            <div class="card" data-card-id="m7">
+                <img class="front" src="img/memory-front.gif">
+                <img class="back" src="img/memory-pictures/kermit.gif">
+            </div>
+            <div class="card" data-card-id="m7">
+                <img class="front" src="img/memory-front.gif">
+                <img class="back" src="img/memory-pictures/kermit.gif">
+            </div>
+            <div class="card" data-card-id="m8">
+                <img class="front" src="img/memory-front.gif">
+                <img class="back" src="img/memory-pictures/woah.gif">
+            </div>
+            <div class="card" data-card-id="m8">
+                <img class="front" src="img/memory-front.gif">
+                <img class="back" src="img/memory-pictures/woah.gif">
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

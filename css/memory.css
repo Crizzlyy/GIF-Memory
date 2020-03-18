@@ -1,0 +1,717 @@
+/* FONTS */
+@import url('https://fonts.googleapis.com/css?family=Alatsi|Raleway&display=swap');
+
+body {
+  font-family: 'Raleway', sans-serif;
+  background-repeat: repeat;
+  background-size: auto;
+  background: url('../img/gaming-pattern.png');
+}
+
+/* BUTTONS */
+#play-again-front {
+  position: absolute;
+  top: 28px;
+  right: 110px;
+  display: inline-block;
+  padding: 15px;
+  margin-left: 20px;
+  overflow: hidden;
+  border-width: 0;
+  outline: none;
+  border-radius: 2px;
+  background-color: #2ecc71;
+  color: #ecf0f1;
+  transition: background-color .3s;
+  font-size: 20px;
+}
+
+#leaderboard-front {
+  position: absolute;
+  top: 28px;
+  right: 215px;
+  display: inline-block;
+  padding: 15px;
+  margin-left: 20px;
+  overflow: hidden;
+  border-width: 0;
+  outline: none;
+  border-radius: 2px;
+  background-color: #ff00c8;
+  color: #ecf0f1;
+  transition: background-color .3s;
+  font-size: 20px;
+}
+
+#leaderboard-modal {
+  position: relative;
+  padding: 21px;
+  overflow: hidden;
+  border-width: 0;
+  width: 100%;
+  outline: none;
+  background-color: #ff00c8;
+  color: #ecf0f1;
+  transition: background-color .3s;
+  font-size: 25px;
+}
+
+#play-again-modal {
+  position: relative;
+  padding: 21px;
+  overflow: hidden;
+  border-width: 0;
+  width: 100%;
+  outline: none;
+  background-color: #2ecc71;
+  color: #ecf0f1;
+  transition: background-color .3s;
+  font-size: 25px;
+}
+
+#submit-score-modal {
+  position: relative;
+  padding: 21px;
+  overflow: hidden;
+  border-width: 0;
+  width: 100%;
+  outline: none;
+  background-color: #ff992f;
+  color: #ecf0f1;
+  transition: background-color .3s;
+  font-size: 25px;
+}
+
+#leaderboard-modal:hover,
+#leaderboard-front:hover {
+  background-color: #ba0092;
+}
+
+#play-again-front:hover,
+#play-again-front:focus,
+#play-again-modal:hover,
+#play-again-modal:focus {
+  background-color: #27ae60;
+}
+
+#play-again-front:active:before,
+#play-again-modal:active:before {
+  width: 120%;
+  padding-top: 120%;
+  transition: width .2s ease-out, padding-top .2s ease-out;
+}
+
+/* DASHBOARD */
+#dashboard {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  background: #0094C6;
+  box-shadow: -17px -3px 20px 8px #00000070;
+  width: 100%;
+  height: 110px;
+  z-index: 1;
+}
+
+#dashboard .memory_image {
+  width: 250px;
+  height: auto;
+  padding: 20px;
+  -webkit-mask-box-image: white;
+}
+
+#dashboard #home {
+  position: absolute;
+  font-size: 35px;
+  font-weight: bold;
+  display: inline-block;
+  color: black;
+  right: 20px;
+  top: -15px;
+}
+
+#dashboard #game_title {
+  position: relative;
+  display: inline-block;
+  font-size: 55px;
+  font-weight: bold;
+  font-family: Alatsi, sans-serif;
+  color: white;
+  left: 25px;
+  top: -7px;
+}
+
+#dashboard #time,
+#dashboard #moves {
+  display: inline-flex;
+  position: relative;
+  top: 3px;
+  line-height: 55px;
+  left: 50px;
+  margin-left: 30px;
+}
+
+#dashboard #time {
+  color: #ffffff;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+#dashboard #moves {
+  color: white;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+#time::before {
+  content: "";
+  background: url(../img/time.svg);
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+  position: relative;
+  top: 0;
+  right: 10px;
+}
+
+#moves::before {
+  content: "";
+  background: url(../img/moves.svg);
+  width: 50px;
+  height: 50px;
+  position: relative;
+  margin-left: 5px;
+  top: 2px;
+  right: 10px;
+}
+
+#home::before {
+  content: "";
+  background: url(../img/home.svg);
+  background-repeat: no-repeat;
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+  position: relative;
+  top: 10px;
+  right: 10px;
+}
+
+/* GAME */
+#game {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#game_container {
+  position: relative;
+  margin-left: 10px;
+  top: 115px;
+}
+
+#game .card:nth-child(4n+1) {
+  clear: left;
+}
+
+.card {
+  float: left;
+  margin: 5px;
+  width: 195px;
+  height: 195px;
+  border-radius: 5px;
+  border: 3px solid #0094c6;
+  perspective: 1000px;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+  box-shadow: 0px 4px 0px 2px #006a8e;
+}
+
+.card:active {
+  transform: scale(0.97);
+  transition: transform .2s;
+}
+
+.card img {
+  width: inherit;
+  height: inherit;
+}
+
+.card.flip {
+  transform: rotateY(180deg);
+}
+
+.card .front {
+  background-color: #0094c6;
+}
+
+.card .front,
+.card .back {
+  backface-visibility: hidden;
+}
+
+.card .back {
+  transform: rotateY(180deg);
+  position: absolute;
+  object-fit: cover;
+  left: 0;
+}
+
+/* MODAL */
+#modal {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+#modal .modal-content {
+  background-color: #fefefe;
+  margin: 10% auto;
+  padding: 0px;
+  width: 45%;
+}
+
+#modal .modal-header {
+  padding: 15px 15px 1px 22px;
+  background-color: #0094C6;
+  color: white;
+}
+
+#modal .modal-col {
+  float: left;
+  width: 100%;
+  height: 100%;
+  padding-bottom: 20px;
+}
+
+#modal .modal-row {
+  font-size: 25px;
+}
+
+#modal .star {
+  width: 50px;
+}
+
+#modal .modal-footer {
+  padding: 10px 45px;
+  background-color: #5cb85c;
+  color: white;
+}
+
+#modal-rating-col {
+  width: 100%;
+  text-align: center;
+  margin: 0 0 0 0;
+}
+
+#modal .close {
+  color: #fff;
+  float: right;
+  font-size: 55px;
+  font-weight: bold;
+  position: relative;
+  top: -12px;
+  right: 10px;
+}
+
+#modal .close:hover,
+#modal .close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#modal #modal-moves-col {
+  border-right: 1px solid #d7d7d7;
+}
+
+#modal #game-finished-headline {
+  margin-top: 7px;
+  font-size: 30px;
+}
+
+#modal #leaderboard-headline {
+  margin-top: 7px;
+  font-size: 30px;
+}
+
+#modal #game-finished-moves {
+  font-size: 30px;
+  text-align: center;
+  margin: 25px 0 0 0;
+}
+
+#modal #game-finished-time {
+  font-size: 30px;
+  text-align: center;
+  margin: 25px 0 0 0;
+}
+
+#modal .game-finished-rating {
+  font-size: 40px;
+  color: #494949;
+  margin: 30px;
+  font-weight: bold;
+}
+
+#modal-rating-score {
+  color: #0cbf00;
+  font-size: 80px;
+  margin-bottom: 22px;
+  font-family: Alatsi;
+  font-weight: bold;
+}
+
+#modal #moves-display {
+  color: #0094c6;
+  font-weight: bold;
+  text-align: center;
+  font-size: 60px;
+  margin: 0 0px 0px 0px;
+}
+
+#modal #time-display {
+  color: #ff0000;
+  font-weight: bold;
+  margin: 20px 0 0px 0;
+  text-align: center;
+  font-size: 30px;
+}
+
+#modal #submit-score {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+#modal #submit-score-title {
+  font-size: 30px;
+}
+
+#modal #submit-points,
+#modal #submit-name {
+  padding: 20px;
+  font-size: 20px;
+  margin-left: 20px;
+  margin-bottom: 5px;
+  border: 1px solid #cacaca;
+}
+
+#modal #submit-points {
+  float: left;
+  color: #0cbf00;
+}
+
+#modal #submit-name {
+  float: left;
+}
+
+#modal #button-submit {
+  padding: 21px;
+  overflow: hidden;
+  border-width: 0;
+  outline: none;
+  background-color: #ff992f;
+  color: #ecf0f1;
+  transition: background-color .3s;
+  font-size: 20px;
+  width: 100px;
+}
+
+#modal #button-close {
+  padding: 21px;
+  overflow: hidden;
+  border-width: 0;
+  outline: none;
+  background-color: #ff0000;
+  color: #ecf0f1;
+  transition: background-color .3s;
+  font-size: 20px;
+  width: 100px;
+}
+
+#modal #button-close:hover {
+  background-color: #d30000;
+}
+
+#modal #submit-score-modal:hover,
+#modal #button-submit:hover {
+  background-color: #f87e00;
+}
+
+#modal-leaderboard-col {
+  width: 100%;
+  text-align: center;
+  margin: 0 0 0 0;
+  background: white;
+}
+
+#modal-leaderboard-col .leaderbord-label {
+  font-size: 40px;
+}
+
+#modal #modal-leaderboard {
+  margin: 3% auto;
+  width: 70%;
+}
+
+#modal #modal-leaderboard .modal-col {
+  padding-bottom: 70px;
+}
+
+/* LEADERBOARD */
+.leaderboard-submissions {
+  width: 87%;
+}
+
+.leaderboard-submissions>td,
+th {
+  text-align: left;
+  padding: 15px;
+  background: #0094c6;
+  color: white;
+}
+
+.leaderboard-submissions>tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+.leaderboard-submissions>tr,
+td {
+  text-align: left;
+  padding: 12px;
+}
+
+/* RESPONSIVENESS */
+@media screen and (max-width: 1024px) {
+  .card {
+    width: 70px;
+    height: 70px;
+  }
+
+  #dashboard {
+    width: 100%;
+    height: 60px;
+  }
+
+  #dashboard .memory_image {
+    width: 100px;
+    height: auto;
+    padding: 15px;
+    position: absolute;
+    top: 0;
+  }
+
+  #dashboard #time,
+  #dashboard #moves {
+    position: relative;
+    left: 33px;
+    top: -10px;
+    margin-left: 15px;
+    font-size: 20px;
+    font-weight: bold;
+    font-size: 15px;
+  }
+
+  #dashboard #game_title {
+    font-size: 20px;
+    top: -9px;
+  }
+
+  #time::before {
+    width: 30px;
+    height: 30px;
+    top: 10px;
+  }
+
+  #moves::before {
+    width: 30px;
+    height: 30px;
+    top: 11px;
+  }
+
+  #dashboard #home {
+    left: unset;
+    bottom: unset;
+    top: 0;
+    right: 10px;
+    font-size: 15px;
+  }
+
+  #home::before {
+    width: 30px;
+    height: 30px;
+    top: -1px;
+    right: 5px;
+  }
+
+  #game_container {
+    left: 0px;
+    top: 70px;
+  }
+
+  #modal .modal-content {
+    margin: 2% auto;
+    width: 96%;
+  }
+
+  #modal #modal-leaderboard {
+    margin: 2% auto;
+    width: 96%;
+  }
+
+  #modal #time-display {
+    font-size: 30px;
+    margin: 20px 0 0 0;
+  }
+
+  #modal #moves-display {
+    font-size: 40px;
+    margin: 10px 0 0 0;
+  }
+
+  #modal-rating-score {
+    font-size: 40px;
+  }
+
+  #game {
+    width: 100%;
+    height: 100%;
+  }
+
+  #play-again-front {
+    position: fixed;
+    top: unset;
+    bottom: 20px;
+    right: 20px;
+    font-size: 15px;
+  }
+
+  #leaderboard-front {
+    position: fixed;
+    top: unset;
+    bottom: 20px;
+    right: 105px;
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .card {
+    width: 70px;
+    height: 70px;
+  }
+
+  #dashboard {
+    width: 100%;
+    height: 60px;
+  }
+
+  #dashboard .memory_image {
+    width: 100px;
+    height: auto;
+    padding: 15px;
+    position: absolute;
+    top: 0;
+  }
+
+  #dashboard #time,
+  #dashboard #moves {
+    position: relative;
+    left: 32px;
+    top: -5px;
+    margin-left: 15px;
+    font-size: 20px;
+    font-weight: bold;
+    font-size: 10px;
+  }
+
+  #dashboard #game_title {
+    font-size: 20px;
+    top: 7px;
+  }
+
+  #time::before {
+    width: 20px;
+    height: 20px;
+    top: 17px;
+  }
+
+  #moves::before {
+    width: 20px;
+    height: 20px;
+    top: 18px;
+  }
+
+  #dashboard #home {
+    left: unset;
+    bottom: unset;
+    top: 0;
+    right: 10px;
+    font-size: 15px;
+  }
+
+  #home::before {
+    width: 20px;
+    height: 20px;
+    top: 7px;
+    right: 5px;
+  }
+
+  #game_container {
+    left: 0px;
+    top: 70px;
+  }
+
+  #modal .modal-content {
+    margin: 2% auto;
+    width: 96%;
+  }
+
+  #modal #modal-leaderboard {
+    margin: 2% auto;
+    width: 96%;
+  }
+
+  #modal #time-display {
+    font-size: 30px;
+    margin: 20px 0 0 0;
+  }
+
+  #modal #moves-display {
+    font-size: 40px;
+    margin: 10px 0 0 0;
+  }
+
+  #modal-rating-score {
+    font-size: 40px;
+  }
+
+  #game {
+    width: 100%;
+    height: 100%;
+  }
+
+  #play-again-front {
+    position: fixed;
+    top: unset;
+    bottom: 10px;
+    right: 10px;
+    font-size: 13px;
+    padding: 15px 10px;
+  }
+
+  #leaderboard-front {
+    position: fixed;
+    top: unset;
+    bottom: 10px;
+    right: 78px;
+    font-size: 13px;
+    padding: 15px 10px;
+  }
+}

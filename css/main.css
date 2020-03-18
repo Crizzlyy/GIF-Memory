@@ -1,0 +1,129 @@
+body {
+    font-family: 'Raleway', sans-serif;
+    background: url("../img/gaming-pattern.png") repeat fixed top;
+    background-repeat: repeat;
+    margin: 0;
+}
+
+span {
+    font-family: 'Raleway', sans-serif;
+    margin-right: 30px;
+}
+
+h1 {
+    font-size: 70px;
+    margin-left: 30px;
+    margin-top: 7px;
+    color: white;
+    text-align: center;
+}
+
+hr {
+    margin-left: 30px;
+    margin-right: 30px;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1), rgba(255, 255, 255, 0), rgba(255, 255, 255, 0), rgba(255, 255, 255, 0), rgba(255, 255, 255, 0));
+    border: none;
+    height: 2px;
+}
+
+#header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: #202020;
+    z-index: 1;
+    box-shadow: 0px 0px 15px 0px #0000005e;
+}
+
+#games_container {
+    position: relative;
+    display: flex;
+    top: 0;
+    width: 100%;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+#game_block {
+    flex-grow: 1;
+    background: white;
+    width: 100%;
+    height: 200px;
+    border-radius: 5px;
+    position: absolute;
+    left: 200px;
+    right: 0;
+    white-space: nowrap;
+    transition: height 1s;
+}
+
+#game_block:before {
+    content: "GIF Memory";
+    display: block;
+    position: absolute;
+    top: 0;
+    font-size: 100px;
+    color: white;
+    font-weight: bold;
+    background: #000000cf;
+    width: 100%;
+    height: 130px;
+    padding: 36px;
+}
+
+#play-button {
+    position: absolute;
+    left: 0;
+    display: block;
+    background: #13b200;
+    width: 105px;
+    height: 142px;
+    color: white;
+    font-size: 60px;
+    padding: 60px 53px 0px 42px;
+    transition: width .5s, padding .5s;
+}
+
+#play-button:hover {
+    z-index: 1;
+    padding-left: 56px;
+    width: 100%;
+    transition: width .5s, padding .5s;
+    background-color: #ff8100;
+}
+
+#copyright {
+    color: #fff;
+    margin-left: 30px;
+}
+
+#game_image {
+    width: auto;
+    height: 200px;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #ffffff;
+    color: white;
+    height: 90px;
+    border-top: 1px solid #e3e3e3;
+}
+
+.footer>* {
+    color: #3b3b3b;
+    padding: 20px 45px;
+}
+
+.footer .cp-link {
+    color: #0095ff;
+    text-decoration: none;
+}
